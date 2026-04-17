@@ -1,0 +1,11 @@
+# Criando o comando para a entidade Cliente
+# Deixarei cadastrarem 2 e-mails e 2 telefones, então elas ficarão na mesma tabela
+CREATE TABLE cliente (
+        cpf int PRIMARY KEY,
+        nome varchar(80) NOT NULL,
+        data_nascimento date NOT NULL,
+        emailum varchar(80),
+        emaildois varchar(80),
+        telefoneum int,
+        telefonedois int
+);

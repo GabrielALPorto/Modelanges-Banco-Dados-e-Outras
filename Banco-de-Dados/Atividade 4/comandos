@@ -1,0 +1,82 @@
+------------------------------------------ Adicionando valores na tabela cliente -------------------------------------------------------
+INSERT INTO cliente (cpf, primeiro_nome, ultimo_nome, data_nascimento, sexo, rua, estado, cidade, cep) VALUES
+(12345678901, 'João', 'Silva', '1985-03-15', 'M', 'Rua das Flores, 123', 'São Paulo', 'São Paulo', 12345678),
+(23456789012, 'Maria', 'Santos', '1990-07-22', 'F', 'Avenida Brasil, 456', 'Rio de Janeiro', 'Rio de Janeiro', 23456789),
+(34567890123, 'Pedro', 'Oliveira', '1988-11-30', 'M', 'Rua XV de Novembro, 789', 'Minas Gerais', 'Belo Horizonte', 34567890),
+(45678901234, 'Ana', 'Costa', '1995-05-10', 'F', 'Travessa da Paz, 321', 'Bahia', 'Salvador', 45678901),
+(56789012345, 'Carlos', 'Rodrigues', '1982-09-18', 'M', 'Alameda dos Anjos, 654', 'Rio Grande do Sul', 'Porto Alegre', 56789012),
+(67890123456, 'Juliana', 'Almeida', '1992-12-05', 'F', 'Rua das Palmeiras, 987', 'Santa Catarina', 'Florianópolis', 67890123),
+(78901234567, 'Fernando', 'Lima', '1987-04-25', 'M', 'Avenida Paulista, 159', 'São Paulo', 'São Paulo', 78901234),
+(89012345678, 'Amanda', 'Pereira', '1998-08-12', 'F', 'Rua do Comércio, 753', 'Paraná', 'Curitiba', 89012345),
+(90123456789, 'Ricardo', 'Souza', '1980-01-28', 'M', 'Praça da Liberdade, 486', 'Minas Gerais', 'Belo Horizonte', 90123456),
+(11223344556, 'Patrícia', 'Martins', '1993-06-08', 'F', 'Rua das Acácias, 264', 'Rio de Janeiro', 'Niterói', 11223344);
+
+------------------------------------------ Adicionando valores na tabela client_telefone_email -------------------------------------------------------
+Adicionando itens na tabela cliente
+INSERT INTO client_telefone_email (cliente_cpf, telefoneum, telefonedois, emailum, emaildois) VALUES
+(12345678901, 11987654321, 1133334444, 'joao.silva@email.com', 'joao.tech@outro.com'),
+(23456789012, 2199998888, 2155556666, 'maria.santos@email.com', 'mariacostura@outro.com'),
+(34567890123, 31977776666, 3144445555, 'pedro.oliveira@email.com', 'pedro.eng@outro.com'),
+(45678901234, 71966665555, 7122223333, 'ana.costa@email.com', 'ana.design@outro.com'),
+(56789012345, 51955554444, 5133332222, 'carlos.rodrigues@email.com', 'carlos.adv@outro.com'),
+(67890123456, 48944443333, 4822221111, 'juliana.almeida@email.com', 'juliana.med@outro.com'),
+(78901234567, 11933332222, 1122221111, 'fernando.lima@email.com', 'fernando.contab@outro.com'),
+(89012345678, 41922221111, 4111110000, 'amanda.pereira@email.com', 'amanda.ped@outro.com'),
+(90123456789, 31911110000, 3100009999, 'ricardo.souza@email.com', 'ricardo.arquit@outro.com'),
+(11223344556, 21900009999, 2133332222, 'patricia.martins@email.com', 'patricia.jurid@outro.com');
+
+------------------------------------------ Realizando buscas com WHERE -------------------------------------------------------
+Full Join
+SELECT * FROM cliente FULL JOIN client_telefone_email ON cliente.cpf = client_telefone_email.cliente_cpf;
+
+Procurando clientes do sexo masculino
+SELECT sexo FROM cliente WHERE sexo = 'M';
+
+Adicionando um cliente fictício na tabela cliente
+INSERT INTO cliente VALUES
+(123, 'João', '1995-04-10', 'M', 'A', 'MG', 'Dida', 11345, 'AE');
+
+Realizando uma junção de das tabelas cliente e cliente_email_telefone
+SELECT primeiro_nome, ultimo_nome, telefoneum, emailum FROM cliente FULL JOIN client_telefone_email ON cliente.cpf = client_telefone_email.cliente_cpf;
+
+Retornando a intersecção de duas tabelas
+SELECT primeiro_nome, ultimo_nome, telefoneum, emailum FROM cliente INNER JOIN cliente_telefone_email ON cliente.cpf = cliente_telefone_email.cliente_cpf;
+
+------------------------------------------ Realizando substituição de valores e deletando instâncias das tabelas --------------------------------------------
+Atualizando o primeiro nome de um cliente
+UPDATE cliente SET primeiro_nome = 'Mario' WHERE primeiro_nome = 'João';
+
+Atualizando o primeiro nome de um cliente utilizando uma condição composta
+UPDATE cliente SET primeiro_nome = 'Juliana' WHERE primeiro_nome = 'Carlos' AND data_nascimento = '1982-09-18';
+
+Comando completo para atualizar o final do e-mail
+UPDATE client_telefone_email SET emailum = OVERLAY(emailum placing 'emailNovo.com' FROM (SELECT (POSITION('@' IN emailum)+1)) FOR (char_length(emailum)));
+// O OVERLAY troca uma String por outra, porém ele precisa de um INT como início e outro como final
+// O (SELECT (POSITION('@' IN emailum)+1)) é uma subquerie que irá retornar uma inteiro com a posição (POSITION) do '@'. +1 para que o '@' continue na substi.
+// O FOR (char_length(emailum))) retorna o número de caracteres da palavra
+// Juntando tudo, o OVERLAY irá substituir da posição do próximo caracter depois do '@', até o final da palavra (char_length)
+
+Delete simples
+DELETE FROM client_telefone_email WHERE emailum = 'joao.silva@email.com';
+
+Deletando linhas que possuem ddd 11
+DELETE FROM client_telefone_email WHERE CAST(telefoneum AS TEXT) LIKE '11%';
+
+Apagando as linhas nos quais o e-mail termina com "@email.com"
+DELETE FROM client_telefone_email WHERE emailum LIKE '%email.com';
+
+
+
+
+Abaixo códigos temporários utilizados durante a criação do comando para alterar o final do e-mail da tabela client_telefone_email
+
+Modificando o final do e-mail de um domínio para outro
+Passo 1: Comando para encontrar em quais posições estão os "@" dos 
+SELECT POSITION('@' IN emailum) FROM client_telefone_email;
+
+Passo 1 alter: Retira tudo que tiver 'email.com'
+SELECT TRIM(both 'email.com' from emailum) FROM client_telefone_email;
+
+SELECT OVERLAY(emailum placing 'emailNovo.com' FROM (SELECT (POSITION('@' IN emailum)+1)) FOR (char_length(emailum))) FROM client_telefone_email;
+
+
