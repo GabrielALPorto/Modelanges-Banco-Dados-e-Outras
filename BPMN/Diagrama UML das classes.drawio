@@ -4,12 +4,6 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="PtZiuTeiPTEHpmBf6DaD-6" edge="1" parent="1" source="WA3XVLza8UY5g4-lLX1m-5" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1.02;entryY=0.563;entryDx=0;entryDy=0;entryPerimeter=0;" target="WA3XVLza8UY5g4-lLX1m-14" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="380" y="210" as="sourcePoint" />
-            <mxPoint x="360" y="170" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="PtZiuTeiPTEHpmBf6DaD-8" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" target="PtZiuTeiPTEHpmBf6DaD-20" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="640" y="310" as="sourcePoint" />
@@ -80,17 +74,23 @@
         <mxCell id="WA3XVLza8UY5g4-lLX1m-12" parent="WA3XVLza8UY5g4-lLX1m-9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span&gt;gerarListaFaltosos(faltas: list) : DataFrame&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;exportarCSV(dados: DataFrame) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;exportarExcel(dados: DataFrame) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;agendarExecucao(horario: time) : void&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="182" width="200" y="198" as="geometry" />
         </mxCell>
-        <mxCell id="WA3XVLza8UY5g4-lLX1m-13" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Suporte" vertex="1">
-          <mxGeometry height="370" width="190" x="130" y="50" as="geometry" />
+        <mxCell id="WA3XVLza8UY5g4-lLX1m-19" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Suporte" vertex="1">
+          <mxGeometry height="300" width="190" x="130" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="WA3XVLza8UY5g4-lLX1m-14" parent="WA3XVLza8UY5g4-lLX1m-13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;li&gt;&lt;p class=&quot;ds-markdown-paragraph&quot;&gt;&lt;span&gt;-id: int&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p class=&quot;ds-markdown-paragraph&quot;&gt;&lt;span&gt;+nome: string&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p class=&quot;ds-markdown-paragraph&quot;&gt;&lt;span&gt;+perfil: enum (Administrador, Operador)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p class=&quot;ds-markdown-paragraph&quot;&gt;&lt;span&gt;+turno: string&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;" vertex="1">
-          <mxGeometry height="154" width="190" y="26" as="geometry" />
+        <mxCell id="WA3XVLza8UY5g4-lLX1m-20" parent="WA3XVLza8UY5g4-lLX1m-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;-id: int&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+nome: string&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+perfil: enum (Administrador, Operador)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+turno: string&lt;/div&gt;" vertex="1">
+          <mxGeometry height="124" width="190" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="WA3XVLza8UY5g4-lLX1m-15" parent="WA3XVLza8UY5g4-lLX1m-13" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
-          <mxGeometry height="8" width="190" y="180" as="geometry" />
+        <mxCell id="WA3XVLza8UY5g4-lLX1m-21" parent="WA3XVLza8UY5g4-lLX1m-19" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="190" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="WA3XVLza8UY5g4-lLX1m-16" parent="WA3XVLza8UY5g4-lLX1m-13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span&gt;registrarJustificativa(aluno: Aluno, justificativa: Justificativa) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;gerarRelatorioFaltas() : DataFrame&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;visualizarListaNotificacao() : void&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="182" width="190" y="188" as="geometry" />
+        <mxCell id="WA3XVLza8UY5g4-lLX1m-22" parent="WA3XVLza8UY5g4-lLX1m-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span&gt;registrarJustificativa(aluno: Aluno, justificativa: Justificativa) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;gerarRelatorioFaltas() : DataFrame&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;visualizarListaNotificacao() : void&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="142" width="190" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="WA3XVLza8UY5g4-lLX1m-23" edge="1" parent="1" source="WA3XVLza8UY5g4-lLX1m-5" style="endArrow=none;html=1;rounded=0;entryX=1.013;entryY=0.741;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;" target="WA3XVLza8UY5g4-lLX1m-20" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="317" as="sourcePoint" />
+            <mxPoint x="660" y="170" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
